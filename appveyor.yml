@@ -7,11 +7,23 @@ branches:
         - port64
         - ci
 
+environment:
+    matrix:
+        - PYTHON: "C:\\Python35-x64"
+
+init:
+    - git submodule update --init --recursive
+
+before_build:
+    - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+    - tools\\build_boost.bat
+
 build:
     project: JContainers.sln
 
 after_build:
-    - cmd: C:\\Python35-x64\\python.exe tools\install.py x64\Release
+    - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+    - python3 tools\\install.py x64\\Release
 
 artifacts:
     - path: dist\*

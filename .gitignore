@@ -1,3 +1,6 @@
+# Ignore the downloaded artifact
+tools/boost.7z
+
 #################
 ## Visual Studio
 #################
