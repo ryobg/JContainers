@@ -132,7 +132,7 @@
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>src;$(SolutionDir)\dep\boost;$(SolutionDir)\dep;$(SolutionDir)\dep\skse64;$(SolutionDir)\dep\googletest\googletest\googletest\include;$(SolutionDir)\dep\jansson\jansson\src;$(SolutionDir)\dep\jansson;$(SolutionDir)\dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;NO_JC_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GTEST_LANG_CXX11;GTEST_HAS_TR1_TUPLE=0;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;NO_JC_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -203,7 +203,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>src;$(SolutionDir)\dep\boost;$(SolutionDir)\dep;$(SolutionDir)\dep\skse64;$(SolutionDir)\dep\googletest\googletest\googletest\include;$(SolutionDir)\dep\jansson\jansson\src;$(SolutionDir)\dep\jansson;$(SolutionDir)\dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GTEST_LANG_CXX11;GTEST_HAS_TR1_TUPLE=0;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>

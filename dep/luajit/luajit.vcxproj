@@ -172,7 +172,7 @@
     </Link>
     <Lib />
     <PreBuildEvent>
-      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat debug static</Command>
+      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat debug static &amp;&amp; cd "luajit-2.0\src" &amp;&amp; del *.ilk *.pdb</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /B /Y $(ProjectDir)luajit-2.0\src\lua51.lib $(OutDir)$(TargetName)$(TargetExt)</Command>

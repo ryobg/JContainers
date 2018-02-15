@@ -187,10 +187,10 @@ namespace reflection { namespace binding {
                 }
             };
 
-            typedef typename std::conditional<
+            using tes_func_holder = typename std::conditional<
                 std::is_void<R>::value,
-                typename void_ret,
-                typename non_void_ret>::type tes_func_holder;
+                void_ret,
+                non_void_ret>::type;
 
             static void bind(const bind_args& args) {
                 args.registry.RegisterFunction
@@ -257,10 +257,10 @@ namespace reflection { namespace binding {
                 }
             };
 
-            typedef typename std::conditional<
+            using tes_func_holder = typename std::conditional<
                 std::is_void<R>::value,
-                typename void_ret,
-                typename non_void_ret>::type tes_func_holder;
+                void_ret,
+                non_void_ret>::type;
 
             static void bind(const bind_args& args) {
                 args.registry.RegisterFunction
