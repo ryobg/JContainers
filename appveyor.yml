@@ -12,18 +12,20 @@ environment:
         - PYTHON: "C:\\Python35-x64"
 
 install:
+    - cmd: set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
     - git submodule update --init --recursive
 
 before_build:
-    - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
-    - tools\\build_boost.bat
+    - cmd: tools\\build_boost.bat
 
 build:
     project: JContainers.sln
 
 after_build:
-    - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
-    - python3 tools\\install.py x64\\Release
+    - cmd: python tools\\install.py x64\\Release
+
+test_script:
+    - cmd: python tools\\test.py x64\\Release\\Data\\SKSE\\Plugins\\JContainers.dll
 
 artifacts:
     - path: dist\*

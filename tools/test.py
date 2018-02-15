@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import os
 import ctypes
 
 if __name__ == '__main__':
@@ -17,6 +18,9 @@ if __name__ == '__main__':
         for i in range(len(argv)):
             cargs[i] = argv[i].encode('utf-8')
         errno = lib.JC_runTests(len(argv), ctypes.byref(cargs))
+        # Some leftovers
+        os.rmdir ('path')
+        os.rmdir ('path3')
     except BaseException as e:
         print("Error:", e)
     except:

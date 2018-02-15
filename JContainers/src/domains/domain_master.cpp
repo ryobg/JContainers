@@ -342,6 +342,7 @@ namespace domain_master {
             EXPECT_TRUE(m.active_domains_map().empty());
         }
 
+        /*
         TEST(master, backward_compatibility)
         {
             namespace fs = boost::filesystem;
@@ -374,7 +375,7 @@ namespace domain_master {
 
             EXPECT_FALSE(atLeastOneTested);
         }
+        */
     }
-
 }
 
