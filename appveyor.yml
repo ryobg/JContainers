@@ -12,13 +12,10 @@ environment:
         - PYTHON: "C:\\Python35-x64"
 
 install:
-    - set "PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-    - python --version
-    - python3 --version
     - git submodule update --init --recursive
 
 before_build:
-    - set "PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+    - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
     - tools\\build_boost.bat
 
 build:

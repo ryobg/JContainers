@@ -1,4 +1,5 @@
 @echo off
+setlocal
 
 set BOOST_ROOT="%~dp0\..\dep\boost"
 
@@ -7,10 +8,19 @@ ver > nul
 
 if not exist "%BOOST_ROOT%\bootstrap.bat" (
 
+    for /f %%p in ('where python3') do set PYTHON_EXE=%%p
+    if not defined PYTHON_EXE (
+        for /f %%p in ('where python') do set PYTHON_EXE=%%p
+        if not defined PYTHON_EXE (
+            echo No Python 3 accessible?
+            exit /b 1
+        )
+    )
+
     echo Download Boost...
     REM https://sourceforge.net/projects/boost/files/boost/1.66.0/
     REM https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.7z
-    python3 "%~dp0\download.py" ^
+    %PYTHON_EXE% "%~dp0\download.py" ^
         https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.7z ^
         "%~dp0\boost.7z"
     if errorlevel 1 (
