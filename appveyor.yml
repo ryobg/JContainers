@@ -8,14 +8,13 @@ branches:
         - ci
 
 environment:
-    matrix:
-        - PYTHON: "C:\\Python35-x64\\python.exe"
+    PYTHON: "C:\\Python35-x64\\python.exe"
 
 build:
     project: JContainers.sln
 
 after_build:
-    - %PYTHON% tools\install.py x64\Release
+    - cmd: %PYTHON% tools\install.py x64\Release
 
 artifacts:
     - path: dist\*
