@@ -7,14 +7,11 @@ branches:
         - port64
         - ci
 
-environment:
-    PYTHON: "C:\\Python35-x64\\python.exe"
-
 build:
     project: JContainers.sln
 
 after_build:
-    - cmd: %PYTHON% tools\install.py x64\Release
+    - cmd: C:\\Python35-x64\\python.exe tools\install.py x64\Release
 
 artifacts:
     - path: dist\*
