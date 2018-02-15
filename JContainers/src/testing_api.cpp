@@ -27,6 +27,6 @@ extern "C" {
             [](const string& s) { return const_cast<char*>(s.c_str()); });
 
         ::testing::InitGoogleTest(&argc, &char_ptr_args.front());
-        return RUN_ALL_TESTS() == 0;
+        return static_cast<bool> (RUN_ALL_TESTS ());
     }
 }
