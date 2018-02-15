@@ -3,7 +3,6 @@
 #include "skse64/PapyrusNativeFunctions.h"
 #include "skse/string.h"
 #include "reflection/reflection.h"
-#include <boost/type_traits/conditional.hpp>
 
 class BGSListForm;
 
@@ -188,10 +187,10 @@ namespace reflection { namespace binding {
                 }
             };
 
-            using tes_func_holder = typename boost::conditional<
+            typedef typename std::conditional<
                 std::is_void<R>::value,
                 typename void_ret,
-                typename non_void_ret>::type;
+                typename non_void_ret>::type tes_func_holder;
 
             static void bind(const bind_args& args) {
                 args.registry.RegisterFunction
@@ -258,10 +257,10 @@ namespace reflection { namespace binding {
                 }
             };
 
-            using tes_func_holder = typename boost::conditional<
+            typedef typename std::conditional<
                 std::is_void<R>::value,
                 typename void_ret,
-                typename non_void_ret>::type;
+                typename non_void_ret>::type tes_func_holder;
 
             static void bind(const bind_args& args) {
                 args.registry.RegisterFunction
