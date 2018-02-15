@@ -11,7 +11,7 @@ environment:
     matrix:
         - PYTHON: "C:\\Python35-x64"
 
-init:
+install:
     - git submodule update --init --recursive
 
 before_build:
