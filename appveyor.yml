@@ -1,0 +1,21 @@
+image: Visual Studio 2017
+version: '3.0.64.{build}'
+configuration: Release
+platform: x64
+branches:
+    only:
+        - port64
+        - ci
+
+environment:
+    matrix:
+        - PYTHON: "C:\\Python35-x64\\python.exe"
+
+build:
+    project: JContainers.sln
+
+after_build:
+    - %PYTHON% tools\install.py x64\Release
+
+artifacts:
+    - path: dist\*
