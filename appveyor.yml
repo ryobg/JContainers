@@ -5,7 +5,6 @@ platform: x64
 branches:
     only:
         - port64
-        - deployments
 
 environment:
     matrix:
@@ -25,12 +24,7 @@ after_build:
     - cmd: python tools\\install.py x64\\Release
 
 test_script:
-    - cmd: python tools\\test.py x64\\Release\\Data\\SKSE\\Plugins\\JContainers64.dll --gtest_output=xml:test_results.xml
-
-after_test:
-    - ps: |
-        $wc = New-Object 'System.Net.WebClient'
-        $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\test_results.xml))
+    - cmd: python tools\\test.py x64\\Release\\Data\\SKSE\\Plugins\\JContainers64.dll
 
 artifacts:
     - path: dist\*
