@@ -66,7 +66,7 @@ or source code.
 3. After successfull build, run from the command line `python tools\install.py x64\Release`.
    Eventually swap `Release` for `Debug` - depending on what kind of distribution was build and
    actually is wanted in the `dist` folder.
-4. Optionaly, run `python tools\test.py x64\Release\Data\SKSE\Plugins\JContainers.dll`. Again it
+4. Optionaly, run `python tools\test.py x64\Release\Data\SKSE\Plugins\JContainers64.dll`. Again it
    depends whether `Release` or `Debug` builds should be tested. Note however that step 3, must be
    ran first!
 

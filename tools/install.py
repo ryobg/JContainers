@@ -20,7 +20,7 @@ def makepath (*args):
 
 class JCLib(object):
 
-    name = 'JContainers.dll'
+    name = 'JContainers64.dll'
 
     def __init__(self, location):
         import ctypes
@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
     dst = os.path.join (DIST_DIR, 'Data')
     shutil.copytree (config.dataDir, dst, ignore = shutil.ignore_patterns ('*.exp', '*.lib', 'test_data'))
-    make_archive (os.path.join (DIST_DIR, 'JContainers.' + config.jcLib.version ()), dst)
+    make_archive (os.path.join (DIST_DIR, 'JContainers64-v' + config.jcLib.version ()), dst)
     shutil.rmtree (dst, ignore_errors = True)
 
     print ("API example skipped - its under revision...")
