@@ -29,3 +29,14 @@ test_script:
 
 artifacts:
     - path: dist\*
+
+deploy:
+    release: JContainers64-v$(appveyor_build_version)
+    description: 'N / A'
+    provider: GitHub
+    auth_token:
+        secure: PtvvT2sUdf1BOAi7m39Sm/2Qh1X8wGVGoHnvKyxMBCirRWJIhbhoOlX5GoF+kDya
+    artifact: dist\*
+    force_update: true
+    draft: false
+    prerelease: true
