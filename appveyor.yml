@@ -27,6 +27,11 @@ after_build:
 test_script:
     - cmd: python tools\\test.py x64\\Release\\Data\\SKSE\\Plugins\\JContainers64.dll --gtest_output=xml:test_results.xml
 
+after_test:
+    - ps: |
+        $wc = New-Object 'System.Net.WebClient'
+        $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\test_results.xml))
+
 artifacts:
     - path: dist\*
       name: jcdistro
