@@ -31,7 +31,7 @@ data structures, garbage collector and other infernal stuff from scratch. Featur
 
 - Data structures: arrays and associative containers (a.k.a. maps or dictionaries)
 - Import and export data to and from JSON files
-- Embedded, lightweight scripting - [Lua](https://www.lua.org/)
+- Embedded, lightweight scripting with [Lua](https://www.lua.org/)
 - Interaction with JContainers via C++ interface.
 
 ### Full documentation
@@ -60,14 +60,15 @@ or source code.
 ### First time setup
 
 1. Run from the JContainer's tools folder the `build_boost.bat` file. It should manage to download,
-   unpack, bootstrap and build the neccessary libraries from Boost.
+   unpack, bootstrap and build the neccessary libraries from Boost (version 1.66 currently).
 2. Open the `JContainers.sln` file with Visual Studio and Rebuild the whole solution. It will take
    some time.
 3. After successfull build, run from the command line `python tools\install.py x64\Release`.
    Eventually swap `Release` for `Debug` - depending on what kind of distribution was build and
    actually is wanted in the `dist` folder.
-4. Optionnaly, run `python tools\test.py x64\Release\Data\SKSE\Plugins\JContainers.dll`. Again it
-   depends whether `Release` or `Debug` should be ran. Note that step 3, must be ran first!
+4. Optionaly, run `python tools\test.py x64\Release\Data\SKSE\Plugins\JContainers.dll`. Again it
+   depends whether `Release` or `Debug` builds should be tested. Note however that step 3, must be
+   ran first!
 
 That's it!
 
