@@ -5,7 +5,7 @@ platform: x64
 branches:
     only:
         - port64
-        - ci
+        - deployments
 
 environment:
     matrix:
@@ -29,3 +29,4 @@ test_script:
 
 artifacts:
     - path: dist\*
+      name: jcdistro
