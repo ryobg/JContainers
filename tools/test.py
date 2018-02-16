@@ -5,11 +5,13 @@ import ctypes
 
 if __name__ == '__main__':
 
-    if len(sys.argv) < 2:
+    if len (sys.argv) < 2:
         print("Usage: test.py <JContainers DLL filepath>")
         sys.exit(1)
-
-    argv = ('', '--gtest_filter=*.*')
+    elif len (sys.argv) == 2:
+        argv = ('', '--gtest_filter=*.*')
+    else:
+        argv = tuple ([''] + sys.argv[1:])
 
     errno = -1
     try:

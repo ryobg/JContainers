@@ -25,7 +25,7 @@ after_build:
     - cmd: python tools\\install.py x64\\Release
 
 test_script:
-    - cmd: python tools\\test.py x64\\Release\\Data\\SKSE\\Plugins\\JContainers64.dll
+    - cmd: python tools\\test.py x64\\Release\\Data\\SKSE\\Plugins\\JContainers64.dll --gtest_output=xml:test_results.xml
 
 artifacts:
     - path: dist\*
