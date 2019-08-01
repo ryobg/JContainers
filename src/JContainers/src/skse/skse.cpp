@@ -190,7 +190,8 @@ struct real_api : public skse_api
 
 	auto policy = *g_objectHandlePolicy;
 	auto handle = policy->Create (form->formType, form);
-	policy->Release (handle);
+	if (handle != policy->GetInvalidHandle ())
+		policy->Release (handle);
     }
 
     void console_print (const char * fmt, const va_list& args) override
