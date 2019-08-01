@@ -156,46 +156,41 @@ struct real_api : public skse_api
         return std::nullopt;
     }
 
-    FormId resolve_handle (FormId handle) override
+    FormId resolve_handle (FormId id) override
     {
-		auto oldID = static_cast<UInt32>(handle);
-		UInt32 newID;
-        return g_serialization->ResolveFormId(oldID, &newID) ? static_cast<FormId>(newID) : FormId::Zero;
+	std::uint32 new_id, old_id = static_cast<std::uint32> (id);
+        return g_serialization->ResolveFormId (old_id, &new_id) ? static_cast<FormId> (new_id) : FormId::Zero;
     }
 
-    TESForm* lookup_form (FormId handle) override
+    TESForm* lookup_form (FormId id) override
     {
-        return LookupFormByID (static_cast<std::uint32_t> (handle));
+        return LookupFormByID (static_cast<std::uint32_t> (id));
     }
 
     bool try_retain_handle (FormId id) override
     {
-		auto form = lookup_form(id);
-		if (!form) {
-			return false;
-		}
+	auto form = lookup_form (id);
+	if (!form)
+		return false;
 
-		auto policy = *g_objectHandlePolicy;
-		auto invalid = policy->GetInvalidHandle();
-		auto handle = policy->Create(form->formType, form);
-		if (handle == invalid) {
-			return false;
-		}
+	auto policy = *g_objectHandlePolicy;
+	auto handle = policy->Create (form->formType, form);
+	if (handle == policy->GetInvalidHandle ())
+		return false;
 
-		policy->AddRef(handle);
-		return true;
+	policy->AddRef (handle);
+	return true;
     }
 
-    void release_handle (FormId handle) override
+    void release_handle (FormId id) override
     {
-		auto form = lookup_form(handle);
-		if (!form) {
-			return;
-		}
+	auto form = lookup_form (id);
+	if (!form)
+		return;
 
-		auto policy = *g_objectHandlePolicy;
-		auto vmHandle = policy->Create(form->formType, form);
-		policy->Release(vmHandle);
+	auto policy = *g_objectHandlePolicy;
+	auto handle = policy->Create (form->formType, form);
+	policy->Release (handle);
     }
 
     void console_print (const char * fmt, const va_list& args) override
