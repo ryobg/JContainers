@@ -158,7 +158,7 @@ struct real_api : public skse_api
 
     FormId resolve_handle (FormId id) override
     {
-	std::uint32 new_id, old_id = static_cast<std::uint32> (id);
+	std::uint32_t new_id, old_id = static_cast<std::uint32_t> (id);
         return g_serialization->ResolveFormId (old_id, &new_id) ? static_cast<FormId> (new_id) : FormId::Zero;
     }
 
