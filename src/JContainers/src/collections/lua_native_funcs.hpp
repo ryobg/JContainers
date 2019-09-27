@@ -114,8 +114,9 @@ namespace lua { namespace api {
             itm = collections::make_weak_form_id((FormId)v->form.___id, context);
             break;
         case item_type::integer:
-            itm = v->integer;
-            break;
+// @see issue #40
+//            itm = v->integer;
+//            break;
         case item_type::real:
             itm = v->real;
             break;

@@ -894,4 +894,7 @@
       <Filter>papyrus\vm</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\skse64_common\skse_version.rc" />
+  </ItemGroup>
 </Project>
