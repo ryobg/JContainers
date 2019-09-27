@@ -220,7 +220,7 @@ local function returnLuaValue(item)
   elseif tp == JCValueType.real then
     v = item.real
   elseif tp == JCValueType.form then
-    v = item.form
+    v = CForm(item.form)
   elseif tp == JCValueType.object then
     v = wrapJCHandle(item.object)
   end
