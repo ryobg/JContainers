@@ -51,11 +51,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_1_3_64</TargetName>
+    <TargetName>$(ProjectName)_1_4_15</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)_1_3_64</TargetName>
+    <TargetName>$(ProjectName)_1_4_15</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -64,7 +64,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_USRDLL;SKSE64_EXPORTS;RUNTIME_VERSION=0x01030401;RUNTIME;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USRDLL;SKSE64_EXPORTS;RUNTIME_VERSION=0x010400F1;RUNTIME;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -160,7 +160,9 @@
     <ClCompile Include="InternalSerialization.cpp" />
     <ClCompile Include="InternalTasks.cpp" />
     <ClCompile Include="NiAdditionalGeometryData.cpp" />
-    <ClCompile Include="NiAllocator.cpp" />
+    <ClCompile Include="GameVR.cpp" />
+    <ClCompile Include="Hooks_VR.cpp" />
+    <ClCompile Include="InternalVR.cpp" />
     <ClCompile Include="NiControllers.cpp" />
     <ClCompile Include="NiExtraData.cpp" />
     <ClCompile Include="NiGeometry.cpp" />
@@ -304,7 +306,11 @@
     <ClInclude Include="InternalSerialization.h" />
     <ClInclude Include="InternalTasks.h" />
     <ClInclude Include="NiAdditionalGeometryData.h" />
-    <ClInclude Include="NiAllocator.h" />
+    <ClInclude Include="GameVR.h" />
+    <ClInclude Include="Hooks_VR.h" />
+    <ClInclude Include="InternalVR.h" />
+    <ClInclude Include="openvr_1_0_12.h" />
+    <ClInclude Include="openvr_1_7_15.h" />
     <ClInclude Include="NiControllers.h" />
     <ClInclude Include="NiExtraData.h" />
     <ClInclude Include="NiGeometry.h" />

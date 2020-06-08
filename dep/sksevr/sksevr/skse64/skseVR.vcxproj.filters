@@ -177,9 +177,6 @@
     <ClCompile Include="NiAdditionalGeometryData.cpp">
       <Filter>netimmerse</Filter>
     </ClCompile>
-    <ClCompile Include="NiAllocator.cpp">
-      <Filter>netimmerse</Filter>
-    </ClCompile>
     <ClCompile Include="NiControllers.cpp">
       <Filter>netimmerse</Filter>
     </ClCompile>
@@ -451,6 +448,15 @@
       <Filter>papyrus\vm</Filter>
     </ClCompile>
     <ClCompile Include="skse64.cpp" />
+    <ClCompile Include="GameVR.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks_VR.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="InternalVR.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameAPI.h">
@@ -604,9 +610,6 @@
       <Filter>netimmerse</Filter>
     </ClInclude>
     <ClInclude Include="NiAdditionalGeometryData.h">
-      <Filter>netimmerse</Filter>
-    </ClInclude>
-    <ClInclude Include="NiAllocator.h">
       <Filter>netimmerse</Filter>
     </ClInclude>
     <ClInclude Include="NiControllers.h">
@@ -881,6 +884,21 @@
     </ClInclude>
     <ClInclude Include="PapyrusVM.h">
       <Filter>papyrus\vm</Filter>
+    </ClInclude>
+    <ClInclude Include="GameVR.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="openvr_1_0_12.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks_VR.h">
+      <Filter>hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalVR.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="openvr_1_7_15.h">
+      <Filter>internal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
