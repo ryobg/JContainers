@@ -92,7 +92,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_USRDLL;SKSE64_EXPORTS;RUNTIME;RUNTIME_VERSION=0x01030401;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_USRDLL;SKSE64_EXPORTS;RUNTIME;RUNTIME_VERSION=0x010400F1;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -138,6 +138,7 @@
     <ClCompile Include="GameThreads.cpp" />
     <ClCompile Include="GameTypes.cpp" />
     <ClCompile Include="GameUtilities.cpp" />
+    <ClCompile Include="GameVR.cpp" />
     <ClCompile Include="GlobalLocks.cpp" />
     <ClCompile Include="HashUtil.cpp" />
     <ClCompile Include="Hooks_Camera.cpp" />
@@ -156,13 +157,12 @@
     <ClCompile Include="Hooks_Scaleform.cpp" />
     <ClCompile Include="Hooks_Threads.cpp" />
     <ClCompile Include="Hooks_UI.cpp" />
+    <ClCompile Include="Hooks_VR.cpp" />
     <ClCompile Include="InputMap.cpp" />
+    <ClCompile Include="InternalVR.cpp" />
     <ClCompile Include="InternalSerialization.cpp" />
     <ClCompile Include="InternalTasks.cpp" />
     <ClCompile Include="NiAdditionalGeometryData.cpp" />
-    <ClCompile Include="GameVR.cpp" />
-    <ClCompile Include="Hooks_VR.cpp" />
-    <ClCompile Include="InternalVR.cpp" />
     <ClCompile Include="NiControllers.cpp" />
     <ClCompile Include="NiExtraData.cpp" />
     <ClCompile Include="NiGeometry.cpp" />
@@ -284,6 +284,7 @@
     <ClInclude Include="gamethreads.h" />
     <ClInclude Include="GameTypes.h" />
     <ClInclude Include="GameUtilities.h" />
+    <ClInclude Include="GameVR.h" />
     <ClInclude Include="GlobalLocks.h" />
     <ClInclude Include="HashUtil.h" />
     <ClInclude Include="Hooks_Camera.h" />
@@ -302,15 +303,12 @@
     <ClInclude Include="Hooks_Scaleform.h" />
     <ClInclude Include="Hooks_Threads.h" />
     <ClInclude Include="Hooks_UI.h" />
+    <ClInclude Include="Hooks_VR.h" />
     <ClInclude Include="InputMap.h" />
+    <ClInclude Include="InternalVR.h" />
     <ClInclude Include="InternalSerialization.h" />
     <ClInclude Include="InternalTasks.h" />
     <ClInclude Include="NiAdditionalGeometryData.h" />
-    <ClInclude Include="GameVR.h" />
-    <ClInclude Include="Hooks_VR.h" />
-    <ClInclude Include="InternalVR.h" />
-    <ClInclude Include="openvr_1_0_12.h" />
-    <ClInclude Include="openvr_1_7_15.h" />
     <ClInclude Include="NiControllers.h" />
     <ClInclude Include="NiExtraData.h" />
     <ClInclude Include="NiGeometry.h" />
@@ -326,6 +324,8 @@
     <ClInclude Include="NiTextures.h" />
     <ClInclude Include="NiTypes.h" />
     <ClInclude Include="ObScript.h" />
+    <ClInclude Include="openvr_1_0_12.h" />
+    <ClInclude Include="openvr_1_7_15.h" />
     <ClInclude Include="PapyrusActiveMagicEffect.h" />
     <ClInclude Include="PapyrusActor.h" />
     <ClInclude Include="PapyrusActorBase.h" />
