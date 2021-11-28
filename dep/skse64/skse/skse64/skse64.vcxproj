@@ -207,6 +207,7 @@
     <ClCompile Include="PapyrusLeveledActor.cpp" />
     <ClCompile Include="PapyrusLeveledItem.cpp" />
     <ClCompile Include="PapyrusLeveledSpell.cpp" />
+    <ClCompile Include="PapyrusLocation.cpp" />
     <ClCompile Include="PapyrusMagicEffect.cpp" />
     <ClCompile Include="PapyrusMath.cpp" />
     <ClCompile Include="PapyrusMisc.cpp" />
@@ -357,6 +358,7 @@
     <ClInclude Include="PapyrusLeveledActor.h" />
     <ClInclude Include="PapyrusLeveledItem.h" />
     <ClInclude Include="PapyrusLeveledSpell.h" />
+    <ClInclude Include="PapyrusLocation.h" />
     <ClInclude Include="PapyrusMagicEffect.h" />
     <ClInclude Include="PapyrusMath.h" />
     <ClInclude Include="PapyrusMisc.h" />
