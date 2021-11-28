@@ -8,12 +8,14 @@ namespace util {
 
     class spinlock
     {
-        std::atomic_flag _lock;
+        // deperecated in C++20 as ctor defaults to zero. MSVC ctor seems to do it, but just to be safe.
+        std::atomic_flag _lock = ATOMIC_FLAG_INIT; 
 
     public:
 
         spinlock() {
-            _lock._My_flag = 0;
+            // Likely the old's code here _lock._My_Val have been also an long.
+            static_assert (sizeof (_lock._Storage._Storage._Value) == sizeof (long), "ABI compatibility, check serialization.");
         }
 
         void lock() {

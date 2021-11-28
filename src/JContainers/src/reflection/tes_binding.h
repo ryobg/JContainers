@@ -195,7 +195,7 @@ namespace reflection { namespace binding {
             static void bind(const bind_args& args) {
                 args.registry.RegisterFunction
                 (
-                    new typename native_function_selector<sizeof...(Params)>::function<
+                    new typename native_function_selector<sizeof...(Params)>::template function<
                         convert_to_tes_type<R>, convert_to_tes_type<Params> ...>
                         (
                             args.functionName.c_str(),
@@ -265,7 +265,7 @@ namespace reflection { namespace binding {
             static void bind(const bind_args& args) {
                 args.registry.RegisterFunction
                 (
-                    new typename state_native_function_selector<sizeof...(Params)>::function<
+                    new typename state_native_function_selector<sizeof...(Params)>::template function<
                         State, convert_to_tes_type<R>, convert_to_tes_type<Params> ...>
                         (
                             args.functionName.c_str(),

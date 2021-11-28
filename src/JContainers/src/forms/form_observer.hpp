@@ -82,10 +82,10 @@ namespace forms {
         }
 
         bool u_is_deleted() const {
-            return _deleted._My_val;
+            return _deleted;
         }
         void u_set_deleted() {
-            _deleted._My_val = true;
+            _deleted = true;
         }
 
         friend class boost::serialization::access;
@@ -93,12 +93,14 @@ namespace forms {
 
         template<class Archive> void save(Archive & ar, const unsigned int version) const {
             ar << util::to_integral_ref(_handle);
-            ar << _deleted._My_val;
+            ar << long (_deleted);
         }
 
         template<class Archive> void load(Archive & ar, const unsigned int version) {
+            long tmp_deleted;
             ar >> util::to_integral_ref(_handle);
-            ar >> _deleted._My_val;
+            ar >> tmp_deleted;
+            _deleted = tmp_deleted;
 
             if (u_is_deleted() == false) {
                 _handle = skse::resolve_handle(_handle);
