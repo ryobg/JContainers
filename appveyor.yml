@@ -28,7 +28,7 @@ install:
     - git submodule update --init --recursive
 
 before_build:
-    - cmd: tools\\build_boost.bat
+    - cmd: tools\\build_boost.bat vc141
     - cmd: tools\\merge_skse.bat
 
 build:
