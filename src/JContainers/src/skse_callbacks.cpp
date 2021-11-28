@@ -115,15 +115,30 @@ namespace {
 
     extern "C" {
 
-        __declspec(dllexport) bool SKSEPlugin_Query(const SKSEInterface * skse, PluginInfo * info) {
+        __declspec(dllexport) SKSEPluginVersionData SKSEPlugin_Version =
+        {
+            SKSEPluginVersionData::kVersion,
+            JC_API_VERSION,
+            JC_PLUGIN_NAME,
+            "silvericed, ryobg & others",
+            "",
+            0,	// not version independent
+            { CURRENT_RELEASE_RUNTIME, 0 },
+            0,	// works with any version of the script extender. you probably do not need to put anything here
+        };
+
+        /// Since SKSE 2.3.1 it is not actually called, kept for minimizing changes
+        bool SKSEPlugin_Query(const SKSEInterface * skse, PluginInfo * info) {
             gLog.OpenRelative(CSIDL_MYDOCUMENTS, JC_SKSE_LOGS JC_PLUGIN_NAME ".log");
             gLog.SetPrintLevel(IDebugLog::kLevel_Error);
             gLog.SetLogLevel(IDebugLog::kLevel_DebugMessage);
 
-            // populate info structure
-            info->infoVersion = PluginInfo::kInfoVersion;
-            info->name = JC_PLUGIN_NAME;
-            info->version = JC_API_VERSION;
+            if (info)
+            {
+                info->infoVersion = PluginInfo::kInfoVersion;
+                info->name = JC_PLUGIN_NAME;
+                info->version = JC_API_VERSION;
+            }
 
             // store plugin handle so we can identify ourselves later
             g_pluginHandle = skse->GetPluginHandle();
@@ -228,7 +243,9 @@ namespace {
             return true;
         }
 
-        __declspec(dllexport) bool SKSEPlugin_Load(const SKSEInterface * skse) {
+        __declspec(dllexport) bool SKSEPlugin_Load(const SKSEInterface * skse)
+        {
+            SKSEPlugin_Query (skse, nullptr);
 
             g_serialization->SetUniqueID(g_pluginHandle, (UInt32)consts::storage_chunk);
 
