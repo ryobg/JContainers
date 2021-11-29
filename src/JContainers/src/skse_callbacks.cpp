@@ -115,7 +115,9 @@ namespace {
 
     extern "C" {
 
-        __declspec(dllexport) SKSEPluginVersionData SKSEPlugin_Version =
+        __declspec(dllexport)
+#ifndef JC_SKSE_VR
+        SKSEPluginVersionData SKSEPlugin_Version =
         {
             SKSEPluginVersionData::kVersion,
             JC_API_VERSION,
@@ -126,9 +128,11 @@ namespace {
             { CURRENT_RELEASE_RUNTIME, 0 },
             0,	// works with any version of the script extender. you probably do not need to put anything here
         };
+#endif
 
         /// Since SKSE 2.3.1 it is not actually called, kept for minimizing changes
-        bool SKSEPlugin_Query(const SKSEInterface * skse, PluginInfo * info) {
+        bool SKSEPlugin_Query (const SKSEInterface * skse, PluginInfo * info)
+        {
             gLog.OpenRelative(CSIDL_MYDOCUMENTS, JC_SKSE_LOGS JC_PLUGIN_NAME ".log");
             gLog.SetPrintLevel(IDebugLog::kLevel_Error);
             gLog.SetLogLevel(IDebugLog::kLevel_DebugMessage);
@@ -245,8 +249,9 @@ namespace {
 
         __declspec(dllexport) bool SKSEPlugin_Load(const SKSEInterface * skse)
         {
+#ifndef JC_SKSE_VR
             SKSEPlugin_Query (skse, nullptr);
-
+#endif
             g_serialization->SetUniqueID(g_pluginHandle, (UInt32)consts::storage_chunk);
 
             g_serialization->SetRevertCallback(g_pluginHandle, revert);
