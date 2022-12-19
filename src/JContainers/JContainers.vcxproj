@@ -239,7 +239,7 @@
     <ClCompile>
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>src;$(SolutionDir)src;$(SolutionDir)dep\skse64;$(SolutionDir)dep\skse64\skse;$(SolutionDir)dep\boost;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;$(SolutionDir)src;$(SolutionDir)dep\skse64;$(SolutionDir)dep\skse64\skse;$(SolutionDir)\dep\skse64\common;$(SolutionDir)dep\boost;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NOMINMAX;_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING;_SILENCE_CXX17_ALLOCATOR_VOID_DEPRECATION_WARNING;_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING; _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;GTEST_LANG_CXX11;GTEST_HAS_TR1_TUPLE=0;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;NO_JC_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -385,7 +385,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>src;$(SolutionDir)src;$(SolutionDir)dep\skse64;$(SolutionDir)dep\boost;$(SolutionDir)dep\skse64\skse;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;$(SolutionDir)src;$(SolutionDir)dep\skse64;$(SolutionDir)dep\boost;$(SolutionDir)dep\skse64\skse;$(SolutionDir)\dep\skse64\common;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NOMINMAX;_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING;_SILENCE_CXX17_ALLOCATOR_VOID_DEPRECATION_WARNING;_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING; _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;GTEST_LANG_CXX11;GTEST_HAS_TR1_TUPLE=0;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
