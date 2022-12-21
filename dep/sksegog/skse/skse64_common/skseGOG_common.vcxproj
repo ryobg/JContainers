@@ -35,12 +35,12 @@
     <ResourceCompile Include="skse_version.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\common\common.vcxproj">
-      <Project>{472e19ab-def0-42df-819b-18722e8dc822}</Project>
+    <ProjectReference Include="..\..\common\common-gog.vcxproj">
+      <Project>{30AE3A01-17BE-476C-AAE0-3774D9589AA1}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5FD1C08D-DB80-480C-A1C6-F0920005CD13}</ProjectGuid>
+    <ProjectGuid>{E4475D21-BAA6-4954-A78A-2F85229C3160}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>skse64_common</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>

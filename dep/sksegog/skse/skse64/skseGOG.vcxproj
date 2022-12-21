@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{639411C0-FC23-4819-A0C5-429A4E5D8A51}</ProjectGuid>
+    <ProjectGuid>{0412D717-0752-4963-B0AB-C2B89DD4020C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
     <RootNamespace>skse64</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <SccProjectName>
@@ -78,19 +79,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_1_4_15</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_1_4_15</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)_1_4_15</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)_1_4_15</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -98,9 +99,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_USRDLL;SKSE64_EXPORTS;RUNTIME_VERSION=0x010400F1;RUNTIME;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_USRDLL;SKSE64_EXPORTS;RUNTIME_VERSION=0x01050610;RUNTIME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -125,9 +125,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_USRDLL;SKSE64_EXPORTS;RUNTIME_VERSION=0x010400F1;RUNTIME;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_USRDLL;SKSE64_EXPORTS;RUNTIME_VERSION=0x01050610;RUNTIME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -154,8 +153,8 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_USRDLL;SKSE64_EXPORTS;RUNTIME;RUNTIME_VERSION=0x010400F1;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_USRDLL;SKSE64_EXPORTS;RUNTIME;RUNTIME_VERSION=0x01050610;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -183,8 +182,8 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_USRDLL;SKSE64_EXPORTS;RUNTIME;RUNTIME_VERSION=0x010400F1;IS_VR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_USRDLL;SKSE64_EXPORTS;RUNTIME;RUNTIME_VERSION=0x01050610;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -220,7 +219,6 @@
     <ClCompile Include="GameInput.cpp" />
     <ClCompile Include="GameMenus.cpp" />
     <ClCompile Include="GameObjects.cpp" />
-    <ClCompile Include="GamePathing.cpp" />
     <ClCompile Include="GameReferences.cpp" />
     <ClCompile Include="GameResources.cpp" />
     <ClCompile Include="GameRTTI.cpp" />
@@ -229,7 +227,6 @@
     <ClCompile Include="GameThreads.cpp" />
     <ClCompile Include="GameTypes.cpp" />
     <ClCompile Include="GameUtilities.cpp" />
-    <ClCompile Include="GameVR.cpp" />
     <ClCompile Include="GlobalLocks.cpp" />
     <ClCompile Include="HashUtil.cpp" />
     <ClCompile Include="Hooks_Camera.cpp" />
@@ -240,7 +237,6 @@
     <ClCompile Include="Hooks_Event.cpp" />
     <ClCompile Include="Hooks_Gameplay.cpp" />
     <ClCompile Include="Hooks_Handlers.cpp" />
-    <ClCompile Include="Hooks_Memory.cpp" />
     <ClCompile Include="Hooks_NetImmerse.cpp" />
     <ClCompile Include="Hooks_ObScript.cpp" />
     <ClCompile Include="Hooks_Papyrus.cpp" />
@@ -248,16 +244,13 @@
     <ClCompile Include="Hooks_Scaleform.cpp" />
     <ClCompile Include="Hooks_Threads.cpp" />
     <ClCompile Include="Hooks_UI.cpp" />
-    <ClCompile Include="Hooks_VR.cpp" />
     <ClCompile Include="InputMap.cpp" />
-    <ClCompile Include="InternalVR.cpp" />
     <ClCompile Include="InternalSerialization.cpp" />
     <ClCompile Include="InternalTasks.cpp" />
     <ClCompile Include="NiAdditionalGeometryData.cpp" />
     <ClCompile Include="NiControllers.cpp" />
     <ClCompile Include="NiExtraData.cpp" />
     <ClCompile Include="NiGeometry.cpp" />
-    <ClCompile Include="NiInterpolators.cpp" />
     <ClCompile Include="NiLight.cpp" />
     <ClCompile Include="NiMaterial.cpp" />
     <ClCompile Include="NiNodes.cpp" />
@@ -300,11 +293,11 @@
     <ClCompile Include="PapyrusHeadPart.cpp" />
     <ClCompile Include="PapyrusIngredient.cpp" />
     <ClCompile Include="PapyrusInput.cpp" />
-    <ClCompile Include="PapyrusInterfaces.cpp" />
     <ClCompile Include="PapyrusKeyword.cpp" />
     <ClCompile Include="PapyrusLeveledActor.cpp" />
     <ClCompile Include="PapyrusLeveledItem.cpp" />
     <ClCompile Include="PapyrusLeveledSpell.cpp" />
+    <ClCompile Include="PapyrusLocation.cpp" />
     <ClCompile Include="PapyrusMagicEffect.cpp" />
     <ClCompile Include="PapyrusMath.cpp" />
     <ClCompile Include="PapyrusMisc.cpp" />
@@ -348,7 +341,16 @@
     <ClCompile Include="ScaleformVM.cpp" />
     <ClCompile Include="Serialization.cpp" />
     <ClCompile Include="skse64.cpp" />
+    <ClCompile Include="PapyrusInterfaces.cpp" />
     <ClCompile Include="Translation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\common-gog.vcxproj">
+      <Project>{30AE3A01-17BE-476C-AAE0-3774D9589AA1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\skse64_common\skseGOG_common.vcxproj">
+      <Project>{E4475D21-BAA6-4954-A78A-2F85229C3160}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BSModelDB.h" />
@@ -366,16 +368,14 @@
     <ClInclude Include="GameInput.h" />
     <ClInclude Include="GameMenus.h" />
     <ClInclude Include="GameObjects.h" />
-    <ClInclude Include="GamePathing.h" />
     <ClInclude Include="GameReferences.h" />
     <ClInclude Include="GameResources.h" />
     <ClInclude Include="GameRTTI.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="GameStreams.h" />
-    <ClInclude Include="gamethreads.h" />
+    <ClInclude Include="GameThreads.h" />
     <ClInclude Include="GameTypes.h" />
     <ClInclude Include="GameUtilities.h" />
-    <ClInclude Include="GameVR.h" />
     <ClInclude Include="GlobalLocks.h" />
     <ClInclude Include="HashUtil.h" />
     <ClInclude Include="Hooks_Camera.h" />
@@ -386,7 +386,6 @@
     <ClInclude Include="Hooks_Event.h" />
     <ClInclude Include="Hooks_Gameplay.h" />
     <ClInclude Include="Hooks_Handlers.h" />
-    <ClInclude Include="Hooks_Memory.h" />
     <ClInclude Include="Hooks_NetImmerse.h" />
     <ClInclude Include="Hooks_ObScript.h" />
     <ClInclude Include="Hooks_Papyrus.h" />
@@ -394,16 +393,13 @@
     <ClInclude Include="Hooks_Scaleform.h" />
     <ClInclude Include="Hooks_Threads.h" />
     <ClInclude Include="Hooks_UI.h" />
-    <ClInclude Include="Hooks_VR.h" />
     <ClInclude Include="InputMap.h" />
-    <ClInclude Include="InternalVR.h" />
     <ClInclude Include="InternalSerialization.h" />
     <ClInclude Include="InternalTasks.h" />
     <ClInclude Include="NiAdditionalGeometryData.h" />
     <ClInclude Include="NiControllers.h" />
     <ClInclude Include="NiExtraData.h" />
     <ClInclude Include="NiGeometry.h" />
-    <ClInclude Include="NiInterpolators.h" />
     <ClInclude Include="NiLight.h" />
     <ClInclude Include="NiMaterial.h" />
     <ClInclude Include="NiNodes.h" />
@@ -415,8 +411,6 @@
     <ClInclude Include="NiTextures.h" />
     <ClInclude Include="NiTypes.h" />
     <ClInclude Include="ObScript.h" />
-    <ClInclude Include="openvr_1_0_12.h" />
-    <ClInclude Include="openvr_1_7_15.h" />
     <ClInclude Include="PapyrusActiveMagicEffect.h" />
     <ClInclude Include="PapyrusActor.h" />
     <ClInclude Include="PapyrusActorBase.h" />
@@ -454,6 +448,7 @@
     <ClInclude Include="PapyrusLeveledActor.h" />
     <ClInclude Include="PapyrusLeveledItem.h" />
     <ClInclude Include="PapyrusLeveledSpell.h" />
+    <ClInclude Include="PapyrusLocation.h" />
     <ClInclude Include="PapyrusMagicEffect.h" />
     <ClInclude Include="PapyrusMath.h" />
     <ClInclude Include="PapyrusMisc.h" />
@@ -506,14 +501,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\skse64_common\skse_version.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\common\common-vr.vcxproj">
-      <Project>{172A50B5-633A-45B2-86E7-9E60D0D3F8FE}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\skse64_common\skseVR_common.vcxproj">
-      <Project>{BF4E6791-1336-4B65-8E3F-731FED37E4B2}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

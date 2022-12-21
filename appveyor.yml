@@ -1,5 +1,5 @@
 image: Visual Studio 2019
-version: '4.2.4.{build}'
+version: '4.2.5.{build}'
 platform: x64
 branches:
     only:
@@ -9,19 +9,29 @@ branches:
 configuration: 
     - Release 
     - ReleaseVR
+    - ReleaseGOG
 
 environment:
     PYTHON: "C:\\Python35-x64"
     matrix:
         - JC_SKSE: "64"
         - JC_SKSE: "VR"
+        - JC_SKSE: "GOG"
 
 matrix:
     exclude:
         - configuration: Release
           JC_SKSE: "VR"
+        - configuration: Release
+          JC_SKSE: "GOG"
         - configuration: ReleaseVR
           JC_SKSE: "64"
+        - configuration: ReleaseVR
+          JC_SKSE: "GOG"
+        - configuration: ReleaseGOG
+          JC_SKSE: "64"
+        - configuration: ReleaseGOG
+          JC_SKSE: "VR"
 
 install:
     - cmd: set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%

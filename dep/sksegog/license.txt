@@ -1,0 +1,3 @@
+These notes apply to all of the files in src/skse:
+
+Due to continued intentional copyright infringement and total disrespect for modder etiquette, the Skyrim Online team is explicitly disallowed from using any of these files for any purpose.

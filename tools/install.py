@@ -116,7 +116,7 @@ def make_archive (dst, src):
 
 if __name__ == '__main__':
     if len (sys.argv) < 3:
-        print ("Usage: install.py x64/[Release[VR]|Debug[VR]] [64|VR]")
+        print ("Usage: install.py x64/[Release[VR|GOG]|Debug[VR|GOG]] [64|VR|GOG]")
         exit (1)
 
     JCLib.suffix = sys.argv[2]

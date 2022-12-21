@@ -2,6 +2,7 @@
 tools/boost.7z
 dep/skse64
 dep/sksevr
+dep/sksegog
 
 #################
 ## Visual Studio
