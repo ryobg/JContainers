@@ -22,10 +22,13 @@ matrix:
     exclude:
         - configuration: Release
           JC_SKSE: "VR"
+          JC_SKSE: "GOG"
         - configuration: ReleaseVR
           JC_SKSE: "64"
-        - configuration: ReleaseGOG
           JC_SKSE: "GOG"
+        - configuration: ReleaseGOG
+          JC_SKSE: "64"
+          JC_SKSE: "VR"
 
 install:
     - cmd: set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
