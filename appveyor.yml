@@ -22,12 +22,15 @@ matrix:
     exclude:
         - configuration: Release
           JC_SKSE: "VR"
+        - configuration: Release
           JC_SKSE: "GOG"
         - configuration: ReleaseVR
           JC_SKSE: "64"
+        - configuration: ReleaseVR
           JC_SKSE: "GOG"
         - configuration: ReleaseGOG
           JC_SKSE: "64"
+        - configuration: ReleaseGOG
           JC_SKSE: "VR"
 
 install:
