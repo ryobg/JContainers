@@ -11,6 +11,16 @@ if errorlevel 1 (
     exit /b 1
 )
 
+set SKSEGOG_ROOT=%~dp0\..\dep\sksegog
+
+echo Unpack and merge SKSE GOG...
+
+"%~dp0\7za.exe" -aos x "%SKSEGOG_ROOT%\sksegog.7z" -o"%SKSEGOG_ROOT%"
+if errorlevel 1 (
+    echo Unable to unpack SKSE, exiting...
+    exit /b 1
+)
+
 set SKSEVR_ROOT=%~dp0\..\dep\sksevr
 
 echo Unpack and merge SKSE VR...
