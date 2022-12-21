@@ -346,7 +346,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\common\common.vcxproj">
-      <Project>{472e19ab-def0-42df-819b-18722e8dc822}</Project>
+      <Project>{A8047AC5-833E-4E96-B09E-C3331ED5513A}</Project>
     </ProjectReference>
     <ProjectReference Include="..\skse64_common\skse64_common.vcxproj">
       <Project>{5fd1c08d-db80-480c-a1c6-f0920005cd13}</Project>
