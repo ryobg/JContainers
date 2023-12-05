@@ -1,9 +1,10 @@
 image: Visual Studio 2019
-version: '4.2.6.{build}'
+version: '4.2.7.{build}'
 platform: x64
 branches:
     only:
         - master
+        - devel
         - develop
 
 configuration: 
