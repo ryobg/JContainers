@@ -28,7 +28,6 @@ class JCLib(object):
 
         print ('Load:', os.path.relpath (location, ROOT))
         self.location = location
-        print ("Verbose log:", location, " => ", os.path.exists (location))
         self.lib = ctypes.CDLL (location);
         self.lib.JC_versionString.restype = ctypes.c_char_p
         self.lib.JC_produceCode.argtypes = [ctypes.c_char_p]
