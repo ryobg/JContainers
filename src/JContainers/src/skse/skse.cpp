@@ -123,7 +123,14 @@ struct real_api : public skse_api
     std::optional<std::uint32_t> form_from_file (std::string_view const& name, std::uint32_t form) override
     {
         using namespace std;
-#ifndef JC_SKSE_VR
+#ifdef JC_SKSE_VR
+        DataHandler* p = DataHandler::GetSingleton ();
+        if (ModInfo const* mi = p->LookupModByName (string (name).c_str ()))
+        {
+            auto retval = make_optional (mi->GetFormID (form));
+            return retval;
+        }
+#else
         DataHandler* p = DataHandler::GetSingleton ();
         if (ModInfo const* mi = p->LookupModByName (string (name).c_str ()))
         {
