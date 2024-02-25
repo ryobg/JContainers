@@ -1,6 +1,7 @@
 #include "SkyrimVRESLAPI.h"
 // Interface code based on https://github.com/adamhynek/higgs
 
+#ifdef JC_SKSE_VR
 // Stores the API after it has already been fetched
 SkyrimVRESLPluginAPI::ISkyrimVRESLInterface001* g_SkyrimVRESLInterface = nullptr;
 
@@ -82,3 +83,4 @@ const ModInfo* SkyrimVRESLPluginAPI::LookupLoadedLightModByName(const char* modN
 		return nullptr;
 	}
 }
+#endif

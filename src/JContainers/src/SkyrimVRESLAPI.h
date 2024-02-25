@@ -4,6 +4,7 @@
 #include <skse64/GameData.h>
 // Interface code based on https://github.com/adamhynek/higgs
 
+#ifdef JC_SKSE_VR
 namespace SkyrimVRESLPluginAPI
 {
 	constexpr const auto SkyrimVRESLPluginName = "SkyrimVRESL";
@@ -54,3 +55,4 @@ const ModInfo* LookupAllLoadedModByName(const char* modName);
 const ModInfo* LookupLoadedLightModByName(const char* modName);
 }  // namespace SkyrimVRESLPluginAPI
 extern SkyrimVRESLPluginAPI::ISkyrimVRESLInterface001* g_SkyrimVRESLInterface;
+#endif
