@@ -7,6 +7,10 @@
 #include "skse64/PluginAPI.h"
 #include "skse64/PapyrusVM.h"
 
+#ifdef JC_SKSE_VR
+#include "SkyrimVRESLAPI.h"
+#endif
+
 #include "util/stl_ext.h"
 #include "forms/form_handling.h"
 
@@ -124,11 +128,22 @@ struct real_api : public skse_api
     {
         using namespace std;
 #ifdef JC_SKSE_VR
-        DataHandler* p = DataHandler::GetSingleton ();
-        if (ModInfo const* mi = p->LookupModByName (string (name).c_str ()))
+        if (g_SkyrimVRESLInterface)
         {
-            auto retval = make_optional (mi->GetFormID (form));
-            return retval;
+            if (ModInfo const* mi = SkyrimVRESLPluginAPI::LookupAllLoadedModByName (string (name).c_str ()))
+            {
+                auto retval = make_optional (SkyrimVRESLPluginAPI::GetFullFormID(mi, form));
+                return retval;
+            }
+        }
+        else
+        {
+            DataHandler* p = DataHandler::GetSingleton ();
+            if (ModInfo const* mi = p->LookupModByName (string (name).c_str ()))
+            {
+                auto retval = make_optional (mi->GetFormID (form));
+                return retval;
+            }
         }
 #else
         DataHandler* p = DataHandler::GetSingleton ();
@@ -155,7 +170,22 @@ struct real_api : public skse_api
 
     std::optional<std::string_view> loaded_light_mod_name (std::uint16_t i) override
     {
-#ifndef JC_SKSE_VR
+#ifdef JC_SKSE_VR
+    if (g_SkyrimVRESLInterface)
+    {
+		const SkyrimVRESLPluginAPI::TESFileCollection* fileCollection = g_SkyrimVRESLInterface->GetCompiledFileCollection();
+        if (i < fileCollection->smallFiles.count)
+        {
+            ModInfo* smallFile = nullptr;
+            fileCollection->smallFiles.GetNthItem(i, smallFile);
+            return smallFile->name;
+        }
+    }
+    else
+    {
+        JC_log("WARNING: Attempted to fetch a light plugin name in VR, but VR ESL support is not  present!");
+    }    
+#else
         DataHandler* p = DataHandler::GetSingleton ();
         if (i < p->modList.loadedCCMods.count)
             return p->modList.loadedCCMods[i]->name;
