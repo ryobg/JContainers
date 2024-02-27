@@ -158,7 +158,7 @@ namespace {
                 JC_log("loaded in editor, marking as incompatible");
                 return false;
             }
-            else if (skse->runtimeVersion != CURRENT_RELEASE_RUNTIME) {
+            else if (skse->runtimeVersion != RUNTIME_VERSION_1_6_1179_GOG) {
                 JC_log("unsupported runtime version %08X", skse->runtimeVersion);
                 return false;
             }
