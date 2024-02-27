@@ -6,7 +6,7 @@ namespace collections {
 
 #   define JC_API_VERSION           4
 #   define JC_FEATURE_VERSION       2
-#   define JC_PATCH_VERSION         10
+#   define JC_PATCH_VERSION         11
 
 #   define JC_FILE_VERSION          JC_API_VERSION, JC_FEATURE_VERSION, JC_PATCH_VERSION, 0
 
