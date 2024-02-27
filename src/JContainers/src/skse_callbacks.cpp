@@ -7,6 +7,10 @@
 #include "skse64/GameForms.h"
 #include "skse64/GameData.h"
 
+#ifdef JC_SKSE_VR
+#include "SkyrimVRESLAPI.h"
+#endif
+
 #include "skse/skse.h"
 #include "skse64/PapyrusVM.h"
 #include "util/util.h"
@@ -211,7 +215,7 @@ namespace {
             // Pitfall: since the functions registered only ONCE, we must 
             // preserve context pointers during ALL gaming session
 
-            // Нужно понимать, что после этой фичи никто памятник тебе не поставит
+            // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
             util::do_with_timing("Registering functions", [=]() {
 
@@ -269,6 +273,18 @@ namespace {
                 g_messaging->RegisterListener(g_pluginHandle, "SKSE", [](SKSEMessagingInterface::Message* msg) {
                     if (msg && msg->type == SKSEMessagingInterface::kMessage_PostPostLoad) {
                         g_messaging->Dispatch(g_pluginHandle, jc::message_root_interface, (void *)&jc::root, sizeof(void*), nullptr);
+
+#ifdef JC_SKSE_VR
+                        SkyrimVRESLPluginAPI::GetSkyrimVRESLInterface001(g_pluginHandle, g_messaging);
+                        if (g_SkyrimVRESLInterface)
+                        {
+                            JC_log("SkyrimVRESL interface detected and initialized!");
+                        }
+                        else
+                        {
+                            JC_log("SkyrimVRESL interface is not present or has failed to be retrieved... ESL related functionality is disabled.");
+                        }
+#endif
                     }
                 });
             }
