@@ -130,7 +130,7 @@ namespace {
             "",
             0,	// not version independent
             0,
-            { CURRENT_RELEASE_RUNTIME, 0 },
+            { JC_SKYRIM_RUNTIME, 0 },
             0,	// works with any version of the script extender. you probably do not need to put anything here
         };
 #endif
@@ -158,7 +158,7 @@ namespace {
                 JC_log("loaded in editor, marking as incompatible");
                 return false;
             }
-            else if (skse->runtimeVersion != CURRENT_RELEASE_RUNTIME) {
+            else if (skse->runtimeVersion != JC_SKYRIM_RUNTIME) {
                 JC_log("unsupported runtime version %08X", skse->runtimeVersion);
                 return false;
             }
