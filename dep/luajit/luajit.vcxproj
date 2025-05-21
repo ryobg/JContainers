@@ -216,7 +216,7 @@
     </Link>
     <Lib />
     <PreBuildEvent>
-      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat static</Command>
+      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat gc64 static</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /B /Y $(ProjectDir)luajit-2.0\src\lua51.lib $(OutDir)$(TargetName)$(TargetExt)</Command>
@@ -242,7 +242,7 @@
     </Link>
     <Lib />
     <PreBuildEvent>
-      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat static</Command>
+      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat gc64 static</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /B /Y $(ProjectDir)luajit-2.0\src\lua51.lib $(OutDir)$(TargetName)$(TargetExt)</Command>
@@ -312,7 +312,7 @@
     </Link>
     <Lib />
     <PreBuildEvent>
-      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat debug static &amp;&amp; cd "luajit-2.0\src" &amp;&amp; del *.ilk *.pdb</Command>
+      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat gc64 debug static &amp;&amp; cd "luajit-2.0\src" &amp;&amp; del *.ilk *.pdb</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /B /Y $(ProjectDir)luajit-2.0\src\lua51.lib $(OutDir)$(TargetName)$(TargetExt)</Command>
@@ -338,7 +338,7 @@
     </Link>
     <Lib />
     <PreBuildEvent>
-      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat debug static &amp;&amp; cd "luajit-2.0\src" &amp;&amp; del *.ilk *.pdb</Command>
+      <Command>cd "luajit-2.0\src" &amp;&amp; msvcbuild.bat gc64 debug static &amp;&amp; cd "luajit-2.0\src" &amp;&amp; del *.ilk *.pdb</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /B /Y $(ProjectDir)luajit-2.0\src\lua51.lib $(OutDir)$(TargetName)$(TargetExt)</Command>
