@@ -99,22 +99,22 @@ namespace lua { namespace aux_wip {
         }
 
         void reopen_if_closed() {
-            long seconds;
+            int seconds;
             for (seconds = -1; !_lua && seconds < 180; seconds++) {
-                if ((_lua = luaL_newstate()) == nullptr) {
+                if ((_lua = luaL_newstate ())) {
                     if (seconds < 0)
-                        JC_log("reopen_if_closed() luajit initial memory allocation failed, retrying for up to 3m. This only happens when LUA is compiled in 32bit mode. Or if you are legitimately out of memory, rare with modern computers");
-                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                        JC_log ("reopen_if_closed(): initial Lua allocation failed; retrying up to 3 minutes (32-bit or low memory)");
+                    std::this_thread::sleep_for (std::chrono::milliseconds (1000));
                 }
             }
 
             if (seconds > 0)
-                JC_log("reopen_if_closed() delayed %ld seconds trying to allocate memory", seconds);
+                JC_log ("reopen_if_closed() delayed %d seconds while trying to allocate memory", seconds);
             if (!_lua)
-                JC_log("reopen_if_closed() timed out trying to allocate luajit memory, will almost certainly crash now");
+                JC_log ("reopen_if_closed() timed out while trying to allocate LuaJIT memory; subsequent Lua operations may crash");
 
-            luaL_openlibs(_lua);
-            setupLuaContext(_lua, _context);
+            luaL_openlibs (_lua);
+            setupLuaContext (_lua, _context);
         }
 
         void close() {
