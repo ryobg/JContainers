@@ -23,6 +23,13 @@ namespace collections {
 #   define JC_USER_FILES            "My Games/Skyrim VR/JCUser/"
 #   define JC_SKYRIM_RUNTIME        CURRENT_RELEASE_RUNTIME
 
+#elif JC_SKSE_GOG
+
+#   define JC_PLUGIN_NAME           "JContainersGOG"
+#   define JC_SKSE_LOGS             "\\My Games\\Skyrim Special Edition GOG\\SKSE\\"
+#   define JC_USER_FILES            "My Games/Skyrim Special Edition GOG/JCUser/"
+#   define JC_SKYRIM_RUNTIME        RUNTIME_VERSION_1_6_1179_GOG
+
 #else
 
 #   define JC_PLUGIN_NAME           "JContainers64"

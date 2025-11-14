@@ -82,6 +82,7 @@
     <ClCompile Include="src\domains\domain_master.cpp">
       <Filter>domain_master</Filter>
     </ClCompile>
+    <ClCompile Include="src\SkyrimVRESLAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\gtest.h">
@@ -273,6 +274,7 @@
     <ClInclude Include="src\boost_extras.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="src\SkyrimVRESLAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="JContainers.rc" />
