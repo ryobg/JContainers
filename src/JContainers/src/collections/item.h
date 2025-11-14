@@ -3,6 +3,7 @@
 #include <boost/variant.hpp>
 #include <string>
 #include <xutility>
+#include <boost/serialization/access.hpp>
 
 #include "common/ITypes.h"
 #include "object/object_base.h"

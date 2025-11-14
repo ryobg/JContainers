@@ -50,7 +50,7 @@ or source code.
 
 ### Prerequisites
 
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/downloads/) 
+* [Microsoft Visual Studio 2019](https://www.visualstudio.com/downloads/) 
   Community Edition with Visual C++ support would suffice. All project files are of that version,
   but with a bit of manual work they may be converted to older versions too (e.g. 2013, though
   issues most certainly will arrise).

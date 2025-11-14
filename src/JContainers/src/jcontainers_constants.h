@@ -5,7 +5,7 @@
 namespace collections {
 
 #   define JC_API_VERSION           4
-#   define JC_FEATURE_VERSION       1
+#   define JC_FEATURE_VERSION       2
 #   define JC_PATCH_VERSION         13
 
 #   define JC_FILE_VERSION          JC_API_VERSION, JC_FEATURE_VERSION, JC_PATCH_VERSION, 0
@@ -21,12 +21,14 @@ namespace collections {
 #   define JC_PLUGIN_NAME           "JContainersVR"
 #   define JC_SKSE_LOGS             "\\My Games\\Skyrim VR\\SKSE\\"
 #   define JC_USER_FILES            "My Games/Skyrim VR/JCUser/"
+#   define JC_SKYRIM_RUNTIME        CURRENT_RELEASE_RUNTIME
 
 #else
 
 #   define JC_PLUGIN_NAME           "JContainers64"
 #   define JC_SKSE_LOGS             "\\My Games\\Skyrim Special Edition\\SKSE\\"
 #   define JC_USER_FILES            "My Games/Skyrim Special Edition/JCUser/"
+#   define JC_SKYRIM_RUNTIME        CURRENT_RELEASE_RUNTIME
 
 #endif
 
