@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="DebugGOG|Win32">
-      <Configuration>DebugGOG</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="DebugGOG|x64">
-      <Configuration>DebugGOG</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="DebugVR|Win32">
       <Configuration>DebugVR</Configuration>
       <Platform>Win32</Platform>
@@ -28,14 +20,6 @@
     <ProjectConfiguration Include="production|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="ReleaseGOG|Win32">
-      <Configuration>ReleaseGOG</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="ReleaseGOG|x64">
-      <Configuration>ReleaseGOG</Configuration>
-      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="ReleaseVR|Win32">
       <Configuration>ReleaseVR</Configuration>
@@ -76,12 +60,6 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v141_xp</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
@@ -89,12 +67,6 @@
     <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -112,12 +84,6 @@
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v141_xp</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVR|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v141_xp</PlatformToolset>
@@ -125,12 +91,6 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -148,16 +108,10 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|x64'" Label="PropertySheets">
@@ -166,16 +120,10 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugVR|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugVR|x64'" Label="PropertySheets">
@@ -190,11 +138,6 @@
     <OutDir>$(SolutionDir)$(Configuration)\Data\SKSE\Plugins\</OutDir>
     <TargetName>JContainers</TargetName>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Configuration)\Data\SKSE\Plugins\</OutDir>
-    <TargetName>JContainers</TargetName>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)$(Configuration)\Data\SKSE\Plugins\</OutDir>
@@ -204,20 +147,11 @@
     <LinkIncremental>false</LinkIncremental>
     <TargetName>JContainers64</TargetName>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <TargetName>JContainersGOG</TargetName>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>JContainersVR</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Configuration)\Data\SKSE\Plugins\</OutDir>
-    <TargetName>JContainers</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)$(Configuration)\Data\SKSE\Plugins\</OutDir>
     <TargetName>JContainers</TargetName>
@@ -231,48 +165,11 @@
     <LinkIncremental>false</LinkIncremental>
     <TargetName>JContainers64</TargetName>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <TargetName>JContainersGOG</TargetName>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVR|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>JContainersVR</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <Optimization>MinSpace</Optimization>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>src;$(SolutionDir)dep\boost;$(SolutionDir)dep\skse;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;NO_JC_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <StringPooling>true</StringPooling>
-      <PrecompiledHeaderFile>jcontainers_pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>jcontainers_pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <SDLCheck>false</SDLCheck>
-    </ClCompile>
-    <Link>
-      <ModuleDefinitionFile>
-      </ModuleDefinitionFile>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(SolutionDir)dep\boost\boost_lib\lib</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-    </Link>
-    <PostBuildEvent />
-    <Bscmake />
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|Win32'">
     <ClCompile>
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -375,43 +272,6 @@
       <Command>cd $(SolutionDir) &amp;&amp; python tools\install.py x64\$(Configuration) 64</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|x64'">
-    <ClCompile>
-      <Optimization>MinSpace</Optimization>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>src;$(SolutionDir)src;$(SolutionDir)dep\sksegog;$(SolutionDir)dep\sksegog\skse;$(SolutionDir)\dep\sksegog\common;$(SolutionDir)dep\boost;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOMINMAX;_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING;_SILENCE_CXX17_ALLOCATOR_VOID_DEPRECATION_WARNING;_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING; _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;GTEST_LANG_CXX11;GTEST_HAS_TR1_TUPLE=0;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;NO_JC_DEBUG;JC_SKSE_GOG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <StringPooling>true</StringPooling>
-      <PrecompiledHeaderFile>jcontainers_pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>jcontainers_pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <SDLCheck>false</SDLCheck>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <ModuleDefinitionFile>
-      </ModuleDefinitionFile>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(SolutionDir)dep\boost\boost_lib\lib;$(SolutionDir)$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>commonGOG.lib;skseGOG_common.lib;skseGOG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PostBuildEvent />
-    <Bscmake />
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>cd $(SolutionDir) &amp;&amp; python tools\install.py x64\$(Configuration) GOG</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|x64'">
     <ClCompile>
       <Optimization>MinSpace</Optimization>
@@ -453,41 +313,6 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>src;$(SolutionDir)dep\boost;$(SolutionDir)dep\skse;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <StringPooling>true</StringPooling>
-      <PrecompiledHeaderFile>jcontainers_pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>jcontainers_pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <SDLCheck>true</SDLCheck>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <AdditionalOptions> -D_SCL_SECURE_NO_WARNINGS</AdditionalOptions>
-    </ClCompile>
-    <Link>
-      <ModuleDefinitionFile>
-      </ModuleDefinitionFile>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(SolutionDir)dep\boost\boost_lib\lib</AdditionalLibraryDirectories>
-      <SubSystem>Console</SubSystem>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <PostBuildEvent />
-    <Bscmake />
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>src;$(SolutionDir)dep\boost;$(SolutionDir)dep\skse;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
@@ -600,49 +425,6 @@
       <PreprocessorDefinitions>_USING_V110_SDK71_;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGOG|x64'">
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>src;$(SolutionDir)src;$(SolutionDir)dep\sksegog;$(SolutionDir)dep\sksegog\skse;$(SolutionDir)\dep\sksegog\common;$(SolutionDir)dep\boost;$(SolutionDir)dep\googletest\googletest\googletest\include;$(SolutionDir)dep\jansson\jansson\src;$(SolutionDir)dep\jansson;$(SolutionDir)dep\luajit\luajit-2.0\src;$(ProjectDir)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOMINMAX;_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING;_SILENCE_CXX17_ALLOCATOR_VOID_DEPRECATION_WARNING;_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING; _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;GTEST_LANG_CXX11;GTEST_HAS_TR1_TUPLE=0;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BOOST_HAS_HASH;JC_SKSE_GOG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <StringPooling>true</StringPooling>
-      <PrecompiledHeaderFile>jcontainers_pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>jcontainers_pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <SDLCheck>true</SDLCheck>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <AdditionalOptions> -D_SCL_SECURE_NO_WARNINGS</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <ModuleDefinitionFile>
-      </ModuleDefinitionFile>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(SolutionDir)dep\boost\boost_lib\lib;$(SolutionDir)$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
-      <SubSystem>Console</SubSystem>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>commonGOG.lib;skseGOG_common.lib;skseGOG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>LIBCMT.lib</IgnoreSpecificDefaultLibraries>
-    </Link>
-    <PostBuildEvent />
-    <Bscmake />
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>cd $(SolutionDir) &amp;&amp; python tools\install.py x64\$(Configuration) GOG</Command>
-    </PostBuildEvent>
-    <ResourceCompile>
-      <PreprocessorDefinitions>_USING_V110_SDK71_;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugVR|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -702,16 +484,12 @@
     <ClCompile Include="src\jc_interface.cpp" />
     <ClCompile Include="src\jcontainers_pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseGOG|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseVR|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugGOG|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugVR|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugGOG|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugVR|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\util\logging.cpp" />
