@@ -315,6 +315,28 @@ JValue.cleanPool(\"uniquePoolName\")"
         }
         REGISTERF(writeToFile, "writeToFile", "* filePath", "Writes the object into JSON file");
 
+        static skse::string_ref toJsonString (tes_context& ctx, object_base* obj)
+        {
+            JC_LOG_API ("0x%p", (void*) obj);
+
+            skse::string_ref result;
+            if (obj)
+            {
+                auto json = json_serializer::create_json_value (*obj);
+                if (json)
+                {
+                    char* str = json_dumps (json.get (), JSON_INDENT (2));
+                    if (str)
+                    {
+                        result = skse::string_ref (str);
+                        free (str);
+                    }
+                }
+            }
+            return result;
+        }
+        REGISTERF (toJsonString, "toJsonString", "*", "Serializes the object into JSON string and returns it");
+
         static SInt32 solvedValueType(tes_context& ctx, object_base* obj, const char *path)
         {
             JC_LOG_API ("0x%p, \"%s\"", (void*) obj, path ? path : "<nullptr>");
