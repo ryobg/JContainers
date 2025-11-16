@@ -12,7 +12,7 @@ if not exist "%BOOST_ROOT%\bootstrap.bat" (
 
         echo Download Boost...
         python "%~dp0\download.py" ^
-            https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.7z ^
+            https://archives.boost.io/release/1.67.0/source/boost_1_67_0.7z ^
             "%~dp0\boost.7z"
         if errorlevel 1 (
             echo Unable to download Boost, exiting...
@@ -39,7 +39,7 @@ pushd "%BOOST_ROOT%"
 
 if not exist b2.exe ( 
     echo b2 not found, bootstrapping Boost...
-    call bootstrap.bat
+    call bootstrap.bat %1
     if errorlevel 1 (
         echo Unable to bootstrap, exiting...
         popd

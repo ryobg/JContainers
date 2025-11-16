@@ -7,7 +7,7 @@ namespace boost {
 
         template<class Archive, class T>
         inline void save_atomic(Archive& ar, const std::atomic<T>& v) {
-            T refCnt = v._My_val;
+            T refCnt = v;
             ar & refCnt;
         }
 
@@ -15,7 +15,7 @@ namespace boost {
         inline void load_atomic(Archive& ar, std::atomic<T> & v) {
             T refCnt = (T)0;
             ar & refCnt;
-            v._My_val = refCnt;
+            v = refCnt;
         }
     }
 }

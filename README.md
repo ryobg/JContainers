@@ -50,7 +50,7 @@ or source code.
 
 ### Prerequisites
 
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/downloads/) 
+* [Microsoft Visual Studio 2019](https://www.visualstudio.com/downloads/) 
   Community Edition with Visual C++ support would suffice. All project files are of that version,
   but with a bit of manual work they may be converted to older versions too (e.g. 2013, though
   issues most certainly will arrise).
@@ -65,7 +65,9 @@ or source code.
 1. Run `git submodule update --init --recursive` so that all dependencies like Jannson, Google Test
    and etc. get downloaded and linked to the correct revisions.
 2. Run the JContainer's `tools\build_boost.bat` file. It should manage to download, unpack,
-   bootstrap and build the neccessary libraries from Boost (version 1.67 currently).
+   bootstrap and build the neccessary libraries from Boost (version 1.67 currently). If you encounter
+   boost linking errors later on, you can attempt to specify the msvc version when running the batch
+   file, e.g. `tools\build_boost.bat vc141`.
 3. Run also the `tools\merge_skse.bat` file. It should extract the stripped down and bundled SKSE64
    and SKSE VR distributions into the local source tree.
 4. Open the `JContainers.sln` file with Visual Studio and Rebuild the whole solution. It will take

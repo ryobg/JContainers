@@ -25,11 +25,10 @@ class JCLib(object):
 
     def __init__(self, location):
         import ctypes
-        from ctypes import cdll
 
         print ('Load:', os.path.relpath (location, ROOT))
         self.location = location
-        self.lib = cdll.LoadLibrary(location);
+        self.lib = ctypes.CDLL (location);
         self.lib.JC_versionString.restype = ctypes.c_char_p
         self.lib.JC_produceCode.argtypes = [ctypes.c_char_p]
 

@@ -1,9 +1,10 @@
-image: Visual Studio 2017
+image: Visual Studio 2019
 version: '4.1.13.{build}'
 platform: x64
 branches:
     only:
         - master
+        - devel
         - develop
 
 configuration: 
@@ -28,7 +29,8 @@ install:
     - git submodule update --init --recursive
 
 before_build:
-    - cmd: tools\\build_boost.bat
+    - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+    - cmd: tools\\build_boost.bat vc141
     - cmd: tools\\merge_skse.bat
 
 build:

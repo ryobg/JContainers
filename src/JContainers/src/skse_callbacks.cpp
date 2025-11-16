@@ -7,6 +7,10 @@
 #include "skse64/GameForms.h"
 #include "skse64/GameData.h"
 
+#ifdef JC_SKSE_VR
+#include "SkyrimVRESLAPI.h"
+#endif
+
 #include "skse/skse.h"
 #include "skse64/PapyrusVM.h"
 #include "util/util.h"
@@ -115,15 +119,21 @@ namespace {
 
     extern "C" {
 
-        __declspec(dllexport) bool SKSEPlugin_Query(const SKSEInterface * skse, PluginInfo * info) {
+        __declspec(dllexport)
+
+        /// Since SKSE 2.3.1 it is not actually called, kept for minimizing changes
+        bool SKSEPlugin_Query (const SKSEInterface * skse, PluginInfo * info)
+        {
             gLog.OpenRelative(CSIDL_MYDOCUMENTS, JC_SKSE_LOGS JC_PLUGIN_NAME ".log");
             gLog.SetPrintLevel(IDebugLog::kLevel_Error);
             gLog.SetLogLevel(IDebugLog::kLevel_DebugMessage);
 
-            // populate info structure
-            info->infoVersion = PluginInfo::kInfoVersion;
-            info->name = JC_PLUGIN_NAME;
-            info->version = JC_API_VERSION;
+            if (info)
+            {
+                info->infoVersion = PluginInfo::kInfoVersion;
+                info->name = JC_PLUGIN_NAME;
+                info->version = JC_API_VERSION;
+            }
 
             // store plugin handle so we can identify ourselves later
             g_pluginHandle = skse->GetPluginHandle();
@@ -134,7 +144,7 @@ namespace {
                 JC_log("loaded in editor, marking as incompatible");
                 return false;
             }
-            else if (skse->runtimeVersion != CURRENT_RELEASE_RUNTIME) {
+            else if (skse->runtimeVersion != JC_SKYRIM_RUNTIME) {
                 JC_log("unsupported runtime version %08X", skse->runtimeVersion);
                 return false;
             }
@@ -191,7 +201,7 @@ namespace {
             // Pitfall: since the functions registered only ONCE, we must 
             // preserve context pointers during ALL gaming session
 
-            // Нужно понимать, что после этой фичи никто памятник тебе не поставит
+            // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
             util::do_with_timing("Registering functions", [=]() {
 
@@ -228,7 +238,7 @@ namespace {
             return true;
         }
 
-        __declspec(dllexport) bool SKSEPlugin_Load(const SKSEInterface * skse) {
+        __declspec(dllexport) bool SKSEPlugin_Load(const SKSEInterface* skse) {
 
             g_serialization->SetUniqueID(g_pluginHandle, (UInt32)consts::storage_chunk);
 
@@ -246,6 +256,18 @@ namespace {
                 g_messaging->RegisterListener(g_pluginHandle, "SKSE", [](SKSEMessagingInterface::Message* msg) {
                     if (msg && msg->type == SKSEMessagingInterface::kMessage_PostPostLoad) {
                         g_messaging->Dispatch(g_pluginHandle, jc::message_root_interface, (void *)&jc::root, sizeof(void*), nullptr);
+
+#ifdef JC_SKSE_VR
+                        SkyrimVRESLPluginAPI::GetSkyrimVRESLInterface001(g_pluginHandle, g_messaging);
+                        if (g_SkyrimVRESLInterface)
+                        {
+                            JC_log("SkyrimVRESL interface detected and initialized!");
+                        }
+                        else
+                        {
+                            JC_log("SkyrimVRESL interface is not present or has failed to be retrieved... ESL related functionality is disabled.");
+                        }
+#endif
                     }
                 });
             }
