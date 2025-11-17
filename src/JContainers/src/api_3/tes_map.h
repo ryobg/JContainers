@@ -51,6 +51,28 @@ namespace tes_api_3 {
         REGISTERF(setItem<object_base*>, "setObj", "* key container", "");
         REGISTERF(setItem<form_ref>, "setForm", "* key value", "");
 
+        template<class T>
+        static T insertItem (tes_context& ctx, ref obj, key_cref key, T val)
+        {
+            JC_LOG_API ("%p, ..., ...", (void*) obj);
+            if (obj && map_key_checker::check (key))
+            {
+                object_lock g (obj);
+                if (item* i = obj->u_get (key))
+                {
+                    return i->readAs<T> ();
+                }
+                obj->u_get_or_create (key) = val;
+                return val;
+            }
+            return default_value<T> ();
+        }
+        REGISTERF (insertItem<SInt32>, "insertInt", "* key value", "Inserts @key: @value pair. Does nothing if the @key already exists");
+        REGISTERF (insertItem<Float32>, "insertFlt", "* key value", "");
+        REGISTERF (insertItem<skse::string_ref>, "insertStr", "* key value", "");
+        REGISTERF (insertItem<object_base*>, "insertObj", "* key container", "");
+        REGISTERF (insertItem<form_ref>, "insertForm", "* key value", "");
+
         static bool hasKey(tes_context& ctx, ref obj, key_cref key) {
             JC_LOG_API ("%p, ...", (void*) obj);
             return valueType(ctx, obj, key) != 0;
