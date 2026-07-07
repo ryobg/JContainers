@@ -11,35 +11,88 @@ namespace tes_api_3 {
 
         REGISTER_TES_NAME("JContainers");
 
-        void additionalSetup() {
-            metaInfo.comment = "Utility functionality";
+        void additionalSetup () override 
+        {
+            metaInfo.comment = "Utility and Versioning functionality\n"
+                "\n"
+                "JContainers version: " JC_VERSION_STR;
         }
 
-        static bool __isInstalled() {
-            return true;
-        }
-        REGISTERF2_STATELESS(__isInstalled, nullptr, "It's NOT part of public API");
-
-        static UInt32 APIVersion() {
+        static UInt32 APIVersion () {
             JC_LOG_API ("");
-            return (UInt32)consts::api_version;
+            return static_cast<UInt32> (consts::api_version);
         }
-        REGISTERF2_STATELESS(APIVersion, nullptr, []() {
-            std::stringstream comm;
-            comm << "Version information.\n"
-                "It's a good practice to validate installed JContainers version with the following code:\n"
-                "    bool isJCValid = JContainers.APIVersion() == AV && JContainers.featureVersion() >= FV\n"
-                "where AV and FV are hardcoded API and feature version numbers.\n";
-            comm << "Current API version is " << APIVersion() << std::endl;
-            comm << "Current feature version is " << featureVersion();
-            return comm.str();
+        REGISTERF2_STATELESS (APIVersion, nullptr, "JContainers uses API.Feature.Minor.Patch versioning.");
+
+        static UInt32 featureVersion () {
+            JC_LOG_API ("");
+            return static_cast<UInt32> (consts::feature_version);
+        }
+        REGISTERF2_STATELESS (featureVersion, nullptr, nullptr);
+
+        static UInt32 minorVersion () {
+            JC_LOG_API ("");
+            return static_cast<UInt32> (consts::minor_version);
+        }
+        REGISTERF2_STATELESS (minorVersion, nullptr, nullptr);
+
+        static UInt32 patchVersion () {
+            JC_LOG_API ("");
+            return static_cast<UInt32> (consts::patch_version);
+        }
+        REGISTERF2_STATELESS (patchVersion, nullptr, nullptr);
+
+        static UInt32 versionInt () 
+        {
+            JC_LOG_API("");
+            return 
+                  static_cast<UInt32> (consts::api_version) * 1000000u
+                + static_cast<UInt32> (consts::feature_version) * 10000u
+                + static_cast<UInt32> (consts::minor_version) * 100u
+                + static_cast<UInt32> (consts::patch_version);
+        }
+        REGISTERF2_STATELESS (versionInt, nullptr, []() {
+            std::stringstream ss; ss
+                << "Returns the full JContainers version as a sortable integer using AABBCCDD format.\n"
+                << "\n"
+                << "Formula:\n"
+                << "    api * 1000000 + feature * 10000 + minor * 100 + patch\n"
+                << "\n"
+                << "Example:\n"
+                << "    4.2.13.1 => 4021301\n"
+                << "\n"
+                << "Current version int is " << versionInt ();
+            return ss.str ();
         });
 
-        static UInt32 featureVersion() {
-            JC_LOG_API ("");
-            return (UInt32)consts::feature_version;
+        static std::string versionString () 
+        {
+            JC_LOG_API("");
+            return JC_VERSION_STR;
         }
-        REGISTERF2_STATELESS(featureVersion, nullptr, nullptr);
+        REGISTERF2_STATELESS (versionString, nullptr, []() {
+            std::stringstream ss; ss
+                << "Returns the full JContainers version string in api.feature.minor.patch format.\n"
+                << "\n"
+                << "Current version string is " JC_VERSION_STR;
+            return ss.str();
+        });
+
+        static bool versionAtLeast (UInt32 api, UInt32 feature, UInt32 minor = 0, UInt32 patch = 0) 
+        {
+            JC_LOG_API("");
+            return versionInt () >= api*1000000u + feature*10000u + minor*100u + patch;
+        }
+        REGISTERF2_STATELESS(versionAtLeast, "api feature minor=0 patch=0", []() {
+            std::stringstream ss; ss
+                << "Returns true if the installed JContainers version is at least the requested version.\n"
+                << "\n"
+                << "Recommended compatibility check:\n"
+                << "    bool valid = JContainers.versionAtLeast (4, 2, 13, 1)\n"
+                << "\n"
+                << "This should be preferred over APIVersion() and featureVersion().";
+            return ss.str ();
+        });
 
         static bool fileExistsAtPath(const char *filename)
         {
@@ -127,6 +180,11 @@ namespace tes_api_3 {
             return userDirectory().c_str();
         }
         REGISTERF_STATELESS(_userDirectory, "userDirectory", "", "A path to user-specific directory - " JC_USER_FILES);
+
+        static bool __isInstalled() {
+            return true;
+        }
+        REGISTERF2_STATELESS(__isInstalled, nullptr, "For internal purposes, do not use it.");
 
         REGISTER_TEXT([]() {
             const char fmt[] = R"===(
