@@ -50,7 +50,6 @@ namespace collections {
         feature_version = JC_FEATURE_VERSION,
         minor_version = JC_MINOR_VERSION,
         patch_version = JC_PATCH_VERSION,
-        revision_version = JC_REVISION_VERSION,
     };
 
 }
