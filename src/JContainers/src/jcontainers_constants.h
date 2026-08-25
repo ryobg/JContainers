@@ -4,17 +4,17 @@
 
 namespace collections {
 
-#   define JC_API_VERSION           4
-#   define JC_FEATURE_VERSION       2
-#   define JC_PATCH_VERSION         13
-#   define JC_REVISION_VERSION      1
+#   define JC_API_VERSION     4
+#   define JC_FEATURE_VERSION 3
+#   define JC_MINOR_VERSION   0
+#   define JC_PATCH_VERSION   0
 
-#   define JC_FILE_VERSION          JC_API_VERSION, JC_FEATURE_VERSION, JC_PATCH_VERSION, JC_REVISION_VERSION
+#   define JC_FILE_VERSION          JC_API_VERSION, JC_FEATURE_VERSION, JC_MINOR_VERSION, JC_PATCH_VERSION
 
 #   define JC_VERSION_STR           STR(JC_API_VERSION)           \
                                     "." STR(JC_FEATURE_VERSION)   \
-                                    "." STR(JC_PATCH_VERSION)     \
-                                    "." STR(JC_REVISION_VERSION)
+                                    "." STR(JC_MINOR_VERSION)     \
+                                    "." STR(JC_PATCH_VERSION)
 
 #   define JC_DATA_FILES            "JCData/"
 
@@ -48,8 +48,8 @@ namespace collections {
 
         api_version = JC_API_VERSION,
         feature_version = JC_FEATURE_VERSION,
+        minor_version = JC_MINOR_VERSION,
         patch_version = JC_PATCH_VERSION,
-        revision_version = JC_REVISION_VERSION,
     };
 
 }
