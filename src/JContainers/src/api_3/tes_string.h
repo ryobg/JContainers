@@ -45,6 +45,20 @@ namespace collections {
 Returns JArray object containing lines.\n\
 Accepts ASCII and UTF-8 encoded strings only");
 
+        static UInt32 stoul (const char* num_string, SInt32 base = 16)
+        {
+            JC_LOG_API ("%s", num_string);
+            if (!num_string)
+                return 0;
+            try {
+                return std::stoul (num_string, nullptr, base);
+            }
+            catch (const std::exception&) {
+                return 0;
+            }
+        }
+        REGISTERF2_STATELESS (stoul, "num_string base=16", "Converts a base string into unsigned integer");
+
         static UInt32 decodeFormStringToFormId(const char* form_string) {
             JC_LOG_API ("%s", form_string);
             return util::to_integral(decodeFormStringToForm(form_string));
@@ -132,5 +146,29 @@ Accepts ASCII and UTF-8 encoded strings only");
 
         auto uidString2 = tes_string::generateUUID();
         EXPECT_NE(uidString, uidString2);
+    }
+
+    TEST (tes_string, stoul)
+    {
+        auto res = tes_string::stoul (nullptr);
+        EXPECT_EQ (res, 0u);
+
+        res = tes_string::stoul ("0");
+        EXPECT_EQ (res, 0u);
+
+        res = tes_string::stoul ("1");
+        EXPECT_EQ (res, 1u);
+
+        res = tes_string::stoul ("A");
+        EXPECT_EQ (res, 10u);
+
+        res = tes_string::stoul ("F");
+        EXPECT_EQ (res, 15u);
+
+        res = tes_string::stoul ("10");
+        EXPECT_EQ (res, 16u);
+
+        res = tes_string::stoul ("0xFFFF");
+        EXPECT_EQ (res, 65535u);
     }
 }
