@@ -51,6 +51,15 @@ namespace collections
             u_removeObject(obj);
         }
 
+        bool removeObjectIfLastRef(object_base& obj) {
+            write_lock g(_mutex);
+            if (obj.refCount() > 1) {
+                return false;
+            }
+            u_removeObject(obj);
+            return true;
+        }
+
         void u_removeObject(object_base& obj) {
             auto id = obj._uid();
             if (id != Handle::Null) {

@@ -66,9 +66,9 @@ namespace collections
     // Decreases _aqueue_refCount OR deletes the object if AQueue is the only owner of the object
     // Returns true, if object deleted
     bool object_base::_aqueue_release() {
-        if (refCount() <= 1) {
+        if (refCount() <= 1 && context().registry->removeObjectIfLastRef(*this)) {
             _aqueue_refCount = 0;
-            _delete_self();
+            delete this;
             return true;
         }
         else {
